@@ -1,0 +1,26 @@
+From 83e1864038f15c0e1250189e8b26a4c4627b18d8 Mon Sep 17 00:00:00 2001
+From: Niels Breet <niels.breet@jolla.com>
+Date: Tue, 23 Nov 2021 14:59:30 +0200
+Subject: [PATCH] Use -r for extended regex instead of -E as our sed is too old
+ for that.
+
+---
+ lib/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/Makefile b/lib/Makefile
+index 9109476..b32136f 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -81,7 +81,7 @@ ifeq ($HAVE_COLORNEVER, 1)
+   GREP_OPTIONS += --color=never
+ endif
+ GREP = grep $(GREP_OPTIONS)
+-SED_ERE_OPT ?= -E
++SED_ERE_OPT ?= -r
+ 
+ ZSTDCOMMON_FILES := $(sort $(wildcard common/*.c))
+ ZSTDCOMP_FILES := $(sort $(wildcard compress/*.c))
+-- 
+1.9.1
+
