@@ -1,0 +1,22 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Martin Kampas <martin.kampas@jolla.com>
+Date: Thu, 8 Sep 2022 11:21:30 +0200
+Subject: [PATCH] Ensure build reproducibility
+
+---
+ programs/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/programs/Makefile b/programs/Makefile
+index 599fb02faf7f5744aad66c22aae37280cb71657f..e9903576222da07b3c945aaade7b301859960bf3 100644
+--- a/programs/Makefile
++++ b/programs/Makefile
+@@ -93,7 +93,7 @@ ZSTDLIB_FULL_SRC = $(sort $(ZSTDLIB_CORE_SRC) $(ZSTDLEGACY_SRC) $(ZDICT_SRC))
+ ZSTDLIB_LOCAL_SRC = $(notdir $(ZSTDLIB_FULL_SRC))
+ ZSTDLIB_LOCAL_OBJ := $(ZSTDLIB_LOCAL_SRC:.c=.o)
+ 
+-ZSTD_CLI_SRC := $(wildcard *.c)
++ZSTD_CLI_SRC := $(sort $(wildcard *.c))
+ ZSTD_CLI_OBJ := $(ZSTD_CLI_SRC:.c=.o)
+ 
+ ZSTD_ALL_SRC = $(ZSTDLIB_LOCAL_SRC) $(ZSTD_CLI_SRC)

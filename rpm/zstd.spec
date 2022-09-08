@@ -18,6 +18,7 @@ License:        BSD and GPLv2
 URL:            https://github.com/facebook/zstd
 Source0:        https://github.com/facebook/zstd/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Patch0:         0001-Use-r-for-extended-regex-instead-of-E-as-our-sed-is-.patch
+Patch1:         0002-Ensure-build-reproducibility.patch
 
 BuildRequires: make
 BuildRequires:  gcc gtest-devel
