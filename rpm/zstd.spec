@@ -10,18 +10,17 @@
 %bcond_with tests
 
 Name:           zstd
-Version:        1.5.0
+Version:        1.5.7
 Release:        1
 Summary:        Zstd compression library
 
 License:        BSD and GPLv2
-URL:            https://github.com/facebook/zstd
-Source0:        https://github.com/facebook/zstd/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-Patch0:         0001-Use-r-for-extended-regex-instead-of-E-as-our-sed-is-.patch
-Patch1:         0002-Ensure-build-reproducibility.patch
+URL:            https://github.com/sailfishos/zstd
+Source0:        %{name}-%{version}.tar.gz
 
-BuildRequires: make
-BuildRequires:  gcc gtest-devel
+%if %{with test}
+BuildRequires:  gtest-devel
+%endif
 %if %{with pzstd}
 BuildRequires:  gcc-c++
 %endif
